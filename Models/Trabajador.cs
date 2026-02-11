@@ -38,5 +38,5 @@ public partial class Trabajador
 
     [ForeignKey("IdCargo")]
     [InverseProperty("Trabajadors")]
-    public virtual Cargo IdCargoNavigation { get; set; } = null!;
+    public virtual Cargo oCargo { get; set; } = null!; //Aca cambiamos a oCargo la o es del objeto
 }
