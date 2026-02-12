@@ -1,4 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.AspNetCore.Http;
+using System;
 
 namespace CRUDTRABAJADORES.Models.ViewModels
 {
@@ -9,6 +11,12 @@ namespace CRUDTRABAJADORES.Models.ViewModels
 
 
         public List<SelectListItem> oListaCargo { get; set; }
+
+        // Archivo cargado desde el formulario
+        public IFormFile? FotoFile { get; set; }
+
+        // URL pública para mostrar la imagen cargada
+        public string? FotoUrl { get; set; }
 
     }
 }

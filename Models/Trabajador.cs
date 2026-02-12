@@ -29,7 +29,9 @@ public partial class Trabajador
 
     public DateOnly FechaNacimiento { get; set; }
 
-    public byte[]? Foto { get; set; }
+    // Ruta/URL de la foto guardada en disco (/uploads/archivo.jpg)
+    [StringLength(250)]
+    public string? FotoUrl { get; set; }
 
     [StringLength(250)]
     public string? Direccion { get; set; }

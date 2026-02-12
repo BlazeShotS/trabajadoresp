@@ -4,8 +4,8 @@
 }
 
 <div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+    <h1 class="display-4">Bienvenido a Crud Trabajadores</h1>
+    <p>Esto es un crud para una entrevista tecnica con  ASP.NET Core.</p>
 </div>
 
 
@@ -40,7 +40,12 @@
                         <td>@item.NumeroDocumento</td>
                         <td>@item.Sexo</td>
                         <td>@item.FechaNacimiento</td>
-                        <td>@item.Foto</td>
+                        <td>
+                            @if (!string.IsNullOrEmpty(item.FotoUrl))
+                            {
+                                <img src="@item.FotoUrl" alt="Foto" style="max-width:80px;max-height:80px;" />
+                            }
+                        </td>
                         <td>@item.oCargo.Tipo</td>
                         <td>
                             <a class="btn btn-primary btn-sm " asp-action="Trabajador_Detalle" asp-controller="Home" asp-route-idTrabajador="@item.IdTrabajador"> Editar</a>

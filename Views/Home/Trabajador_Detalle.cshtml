@@ -1,8 +1,110 @@
-﻿
+﻿@model CRUDTRABAJADORES.Models.ViewModels.TrabajadorVM
 @{
     ViewData["Title"] = "Trabajador_Detalle";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h1>Trabajador_Detalle</h1>
 
+@if (Model.oTrabajador.IdTrabajador == 0)
+{
+    <h2>Crear Trabajador</h2>
+}
+else
+{
+    <h2>Editar Trabajador</h2>
+}
+
+<div class="row">
+    <div class="col-sm-6">
+
+        <form asp-action="Trabajador_Detalle" asp-controller="Home" method="post" enctype="multipart/form-data">
+            @Html.AntiForgeryToken()
+            @if (ViewBag.Error != null)
+            {
+                <div class="alert alert-danger">@ViewBag.Error</div>
+            }
+            @if (TempData["SuccessMessage"] != null)
+            {
+                <div class="alert alert-success">@TempData["SuccessMessage"]</div>
+            }
+            <input type="hidden" asp-for="oTrabajador.IdTrabajador" />
+
+            <div class="mb-2">
+                <label class="form-label" asp-for="oTrabajador.Nombres">Nombres</label>
+                <input class="form-control form-control-sm" asp-for="oTrabajador.Nombres" />
+            </div>
+
+            <div class="mb-2">
+                <label class="form-label" asp-for="oTrabajador.Apellidos">Apellidos</label>
+                <input class="form-control form-control-sm" asp-for="oTrabajador.Apellidos" />
+            </div>
+
+            <div class="mb-2">
+                <label class="form-label" asp-for="oTrabajador.TipoDocumento">Tipo de documento</label>
+                <input class="form-control form-control-sm" asp-for="oTrabajador.TipoDocumento" />
+            </div>
+
+            <div class="mb-2">
+                <label class="form-label" asp-for="oTrabajador.NumeroDocumento">Número de documento</label>
+                <input class="form-control form-control-sm" asp-for="oTrabajador.NumeroDocumento" />
+            </div>
+
+            <div class="mb-2">
+                <label class="form-label" asp-for="oTrabajador.Sexo">Sexo</label>
+                <select class="form-select form-select-sm" asp-for="oTrabajador.Sexo">
+                    <option value="">-- Seleccionar --</option>
+                    <option value="Masculino">Masculino</option>
+                    <option value="Femenino">Femenino</option>
+                </select>
+            </div>
+
+            <div class="mb-2">
+                <label class="form-label" asp-for="oTrabajador.FechaNacimiento">Fecha de nacimiento</label>
+                <input class="form-control form-control-sm" asp-for="oTrabajador.FechaNacimiento" type="date" />
+            </div>
+
+            <div class="mb-2">
+                <label class="form-label" asp-for="FotoFile">Foto</label>
+
+                @{
+                    var fotoToShow = !string.IsNullOrEmpty(Model.FotoUrl) ? Model.FotoUrl : Model.oTrabajador.FotoUrl;
+                }
+
+                @if (!string.IsNullOrEmpty(fotoToShow))
+                {
+                    <div class="mb-2">
+                        <img src="@fotoToShow" alt="Foto" style="max-width:200px;max-height:200px;" />
+                    </div>
+                }
+
+                <input class="form-control form-control-sm" asp-for="FotoFile" type="file" />
+            </div>
+
+            <div class="mb-2">
+                <label class="form-label" asp-for="oTrabajador.Direccion">Dirección</label>
+                <input class="form-control form-control-sm" asp-for="oTrabajador.Direccion" />
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label" asp-for="oTrabajador.IdCargo">Cargo</label>
+                <select class="form-select form-select-sm" asp-for="oTrabajador.IdCargo" asp-items="@Model.oListaCargo">
+                    <option value="">-- Seleccionar --</option>
+                </select>
+            </div>
+
+            <div class="mb-2">
+                @if (Model.oTrabajador.IdTrabajador == 0)
+                {
+                    <button class="btn btn-primary btn-sm w-25" type="submit">Crear</button>
+                }
+                else
+                {
+                    <button class="btn btn-primary btn-sm w-25" type="submit">Actualizar</button>
+                }
+                <a class="btn btn-dark btn-sm" asp-action="Index" asp-controller="Home">Volver</a>
+            </div>
+
+        </form>
+
+    </div>
+</div>

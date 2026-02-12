@@ -61,6 +61,10 @@ wwwroot\lib\jquery\dist\jquery.slim.js
 wwwroot\lib\jquery\dist\jquery.slim.min.js
 wwwroot\lib\jquery\dist\jquery.slim.min.map
 wwwroot\lib\jquery\LICENSE.txt
+wwwroot\uploads\trabajador_75b6833e-f060-4a0f-8f75-14ecb8896886.jfif
+wwwroot\uploads\trabajador_8d6f8912-de5a-4b14-91cc-1d215cdc55d8.jpg
+wwwroot\uploads\trabajador_db2af221-66e1-4f53-ba9f-8bae5a5e1062.webp
+wwwroot\uploads\trabajador_edf6d3a6-b574-4ad0-ae75-06adaea9b1d3.webp
 C:\Users\PC\Desktop\CRUDTRABAJADORES\CRUDTRABAJADORES\wwwroot\css\site.css
 C:\Users\PC\Desktop\CRUDTRABAJADORES\CRUDTRABAJADORES\wwwroot\favicon.ico
 C:\Users\PC\Desktop\CRUDTRABAJADORES\CRUDTRABAJADORES\wwwroot\js\site.js

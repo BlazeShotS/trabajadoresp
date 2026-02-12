@@ -15,6 +15,6 @@ public partial class Cargo
     [StringLength(100)]
     public string Tipo { get; set; } = null!;
 
-    [InverseProperty("IdCargoNavigation")]
+    [InverseProperty("oCargo")]
     public virtual ICollection<Trabajador> Trabajadors { get; set; } = new List<Trabajador>();
 }

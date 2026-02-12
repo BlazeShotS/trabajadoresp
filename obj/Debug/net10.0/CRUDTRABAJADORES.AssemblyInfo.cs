@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("CRUDTRABAJADORES")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+7b5f5d0778ae93032a49858547027a652efcd99d")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+fd01a5a8586fe807bd55c23444ab101d78b7948b")]
 [assembly: System.Reflection.AssemblyProductAttribute("CRUDTRABAJADORES")]
 [assembly: System.Reflection.AssemblyTitleAttribute("CRUDTRABAJADORES")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
