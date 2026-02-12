@@ -20,8 +20,10 @@ public partial class TrabajadoresPruebaContext : DbContext
     public virtual DbSet<Trabajador> Trabajadors { get; set; }
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-#warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see https://go.microsoft.com/fwlink/?LinkId=723263.
-        => optionsBuilder.UseSqlServer("Server=(local);Database=TrabajadoresPrueba;Trusted_Connection=True;TrustServerCertificate=True;");
+    {
+    }
+
+
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
@@ -34,7 +36,7 @@ public partial class TrabajadoresPruebaContext : DbContext
         {
             entity.HasKey(e => e.IdTrabajador).HasName("PK__Trabajad__6FAFBCF0788F0EAA");
 
-            entity.HasOne(d => d.IdCargoNavigation).WithMany(p => p.Trabajadors)
+            entity.HasOne(d => d.oCargo).WithMany(p => p.Trabajadors)
                 .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("FK_Cargo");
         });

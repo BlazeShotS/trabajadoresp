@@ -1,8 +1,58 @@
-﻿@{
+﻿@model List<CRUDTRABAJADORES.Models.Trabajador>
+@{
     ViewData["Title"] = "Home Page";
 }
 
 <div class="text-center">
     <h1 class="display-4">Welcome</h1>
     <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+</div>
+
+
+<div class="card">
+    <div class="card-header">
+        <h5>Lista de trabajadores</h5>
+    </div>
+    <div class="card-body">
+        <a class="btn btn-success btn-sm" asp-action="Trabajador_Detalle" asp-controller="Home" asp-route-idTrabajador="0">Crear Nuevo</a>
+        <hr />
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Nombre Completo</th>
+                    <th>Apellidos</th>
+                    <th>Tipo de documento</th>
+                    <th>Número de documento</th>
+                    <th>Sexo</th>
+                    <th>Fecha nacimiento</th>
+                    <th>Foto</th>
+                    <th>Tipo</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach(var item in Model)
+                {
+                    <tr>
+                        <td>@item.Nombres</td>
+                        <td>@item.Apellidos</td>
+                        <td>@item.TipoDocumento</td>
+                        <td>@item.NumeroDocumento</td>
+                        <td>@item.Sexo</td>
+                        <td>@item.FechaNacimiento</td>
+                        <td>@item.Foto</td>
+                        <td>@item.oCargo.Tipo</td>
+                        <td>
+                            <a class="btn btn-primary btn-sm " asp-action="Trabajador_Detalle" asp-controller="Home" asp-route-idTrabajador="@item.IdTrabajador"> Editar</a>
+                            <a class="btn btn-danger btn-sm " asp-action="Eliminar" asp-controller="Home" asp-route-idTrabajador="@item.IdTrabajador"> Eliminar</a>
+                        </td>
+                    </tr>
+
+
+                }
+            </tbody>
+        </table>
+
+
+    </div>
 </div>
