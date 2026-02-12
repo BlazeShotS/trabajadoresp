@@ -1,0 +1,75 @@
+﻿@model CRUDTRABAJADORES.Models.Trabajador
+@{
+    ViewData["Title"] = "Eliminar";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Eliminar Trabajador</h1>
+
+<h3 class="text-danger">¿Está seguro de eliminar este trabajador?</h3>
+<hr />
+<div class="row">
+    <div class="col-sm-6">
+
+        <form asp-action="Eliminar" asp-controller="Home" method="post">
+            <input type="hidden" asp-for="IdTrabajador" />
+
+            <div class="mb-2">
+                <label class="form-label" asp-for="Nombres">Nombres</label>
+                <input class="form-control form-control-sm" asp-for="Nombres" type="text" disabled />
+            </div>
+
+            <div class="mb-2">
+                <label class="form-label" asp-for="Apellidos">Apellidos</label>
+                <input class="form-control form-control-sm" asp-for="Apellidos" type="text" disabled />
+            </div>
+
+            <div class="mb-2">
+                <label class="form-label" asp-for="TipoDocumento">Tipo de documento</label>
+                <input class="form-control form-control-sm" asp-for="TipoDocumento" type="text" disabled />
+            </div>
+
+            <div class="mb-2">
+                <label class="form-label" asp-for="NumeroDocumento">Número de documento</label>
+                <input class="form-control form-control-sm" asp-for="NumeroDocumento" type="text" disabled />
+            </div>
+
+            <div class="mb-2">
+                <label class="form-label" asp-for="Sexo">Sexo</label>
+                <input class="form-control form-control-sm" asp-for="Sexo" type="text" disabled />
+            </div>
+
+            <div class="mb-2">
+                <label class="form-label" asp-for="FechaNacimiento">Fecha de nacimiento</label>
+                <input class="form-control form-control-sm" asp-for="FechaNacimiento" type="date" disabled />
+            </div>
+
+            <div class="mb-2">
+                <label class="form-label">Foto</label>
+                @if (!string.IsNullOrEmpty(Model.FotoUrl))
+                {
+                    <div class="mb-2">
+                        <img src="@Model.FotoUrl" alt="Foto" style="max-width:200px;max-height:200px;" />
+                    </div>
+                }
+            </div>
+
+            <div class="mb-2">
+                <label class="form-label" asp-for="Direccion">Dirección</label>
+                <input class="form-control form-control-sm" asp-for="Direccion" type="text" disabled />
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">Cargo</label>
+                <input class="form-control form-control-sm" value="@Model.oCargo?.Tipo" type="text" disabled />
+            </div>
+
+            <div class="mb-2">
+                <button class="btn btn-danger btn-sm w-25" type="submit">Eliminar</button>
+                <a class="btn btn-dark btn-sm" asp-action="Index" asp-controller="Home">Volver</a>
+            </div>
+
+        </form>
+
+    </div>
+</div>

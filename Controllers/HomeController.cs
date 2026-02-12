@@ -32,6 +32,8 @@ namespace CRUDTRABAJADORES.Controllers
         }
 
 
+        //PARA CREAR Y EDITAR
+
         //Este metodo es para el detalle del trabajador , es decir para agregar o editar un trabajador , SOLO DEVUELE LA VISTA, si el idTrabajador es 0 es para agregar , si es diferente de 0 es para editar
         [HttpGet]
         public IActionResult Trabajador_Detalle(int idTrabajador)
@@ -134,6 +136,31 @@ namespace CRUDTRABAJADORES.Controllers
             TempData["SuccessMessage"] = "Trabajador guardado correctamente.";
             return RedirectToAction("Index", "Home");
         }
+
+
+
+        //PARA ELIMINAR
+
+
+        [HttpGet]
+        public IActionResult Eliminar(int idTrabajador)
+        {
+            Trabajador oTrabajador = _DBContext.Trabajadors.Include(c => c.oCargo).Where(e => e.IdTrabajador == idTrabajador).FirstOrDefault();
+
+            return View(oTrabajador);
+
+        }
+
+
+        [HttpPost]
+        public IActionResult Eliminar(Trabajador oTrabajador)
+        {
+            _DBContext.Trabajadors.Remove(oTrabajador);
+            _DBContext.SaveChanges();
+
+            return RedirectToAction("Index", "Home");
+        }
+
 
 
     }
